@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,110 +21,149 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Weather App Project</title>
   </head>
-  <body>
-    <div id="container">
-      <div id="search-field">
-        <input type="text" id="search" placeholder="enter your city" />
-        <button type="submit" id="submit-city">Go</button>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="card">
-            <div class="card-body">
-              <h1 class="city-name">Atlanta</h1>
-              <ul>
-                <li><span class="precip">Precipitation</span> 10%</li>
-                <li><span class="humidity">Humidity</span> 40%</li>
-                <li><span class="wind">Wind</span> 3 mph</li>
-              </ul>
-            </div>
+      <body>
+        <div id="container">
+          <div id="search-field">
+            <input type="text" id="search" placeholder="enter your city" />
+            <button type="submit" id="submit-city">Go</button>
           </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="card">
-            <div class="card-body">
-              <span class="currentemoji">☀️</span>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-sm-4">
-          <div class="card">
-            <div class="card-body">
-              <span class="current-temp">74°</span>
-              <a href="#" id="celsius">C</a> | <a href="#" id="fahrenheit">F</a>
-              <br />
-              <span class="dateandtime">Monday, 12:00</span>
-              <ul>
-                <li><span class="high">high</span> 85°F</li>
-                <li><span class="low">low</span> 68°F</li>
-              </ul>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <h1>Atlanta</h1>
+                  <ul>
+                    <li>
+                      <span class="label">Humidity:</span>
+                      <span id="humidity"> 40</span>%
+                    </li>
+                    <li>
+                      <span class="label">Wind:</span>
+                      <span id="wind"> 3</span>&nbsp;mph
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <span class="currentemoji">☀️</span>
+                </div>
+              </div>
+            </div>
 
-        <div class="row">
-          <div class="col-sm-3">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="forecast-day">tomorrow</h5>
-                <span>🌤</span>
-                <ul>
-                  <li><span class="high">high</span> 84°F</li>
-                  <li><span class="low">low</span> 69°F</li>
-                </ul>
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <span id="current-temp">74</span
+                  ><span class="unit">&nbsp;°F</span>
+
+                  <br />
+                  <span class="dateandtime">Monday, 12:00</span>
+                  <ul>
+                    <li>
+                      <span class="label">high</span>
+                      <span id="high"> 85°F</span>
+                    </li>
+                    <li>
+                      <span class="label">low</span>
+                      <span id="low"> 68°F</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="forecast-day">tomorrow</h5>
+                    <span>🌤</span>
+                    <ul>
+                      <li>
+                        <span class="label">high</span>
+                        <span id="high"> 84°F</span>
+                      </li>
+
+                      <li>
+                        <span class="label">low</span>
+                        <span id="low"> 64°F</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="forecast-day">thursday</h5>
+                    <span>🌧</span>
+                    <ul>
+                      <li>
+                        <span class="label">high</span>
+                        <span id="high">79°F</span>
+                      </li>
+                      <li>
+                        <span class="label">low</span>
+                        <span id="low">65°F</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-3">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="forecast-day">friday</h5>
+                    <span>☁️</span>
+                    <ul>
+                      <li>
+                        <span class="label">high</span>
+                        <span id="high"> 80°F</span>
+                      </li>
+                      <li>
+                        <span class="label">low</span>
+                        <span id="low">65°F</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-3">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="forecast-day">saturday</h5>
+                    <span>🌤</span>
+                    <ul>
+                      <li>
+                        <span class="label">high</span>
+                        <span id="high">82°F</span>
+                      </li>
+                      <li>
+                        <span class="label">low</span>
+                        <span id="low">68°F</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-sm-3">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="forecast-day">thursday</h5>
-                <span>🌧</span>
-                <ul>
-                  <li><span class="high">high</span> 79°F</li>
-                  <li><span class="low">low</span> 65°F</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-3">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="forecast-day">friday</h5>
-                <span>☁️</span>
-                <ul>
-                  <li><span class="high">high</span> 80°F</li>
-                  <li><span class="low">low</span> 65°F</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-3">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="forecast-day">saturday</h5>
-                <span>🌤</span>
-                <ul>
-                  <li><span class="high">high</span> 82°F</li>
-                  <li><span class="low">low</span> 68°F</li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-    <a
-      href="https://github.com/codebrittdesign/weather-app.git"
-      target="new"
-      class="pagelink"
-      >Open-source Code</a
-    >, by Brittney Bell
+        <a
+          href="https://github.com/codebrittdesign/weather-app.git"
+          target="new"
+          class="pagelink"
+          >Open-source Code</a
+        >, by Brittney Bell
 
-    <script src="script.js"></script>
+        <script src="script.js"></script>
+      </body>
+    </html>
   </body>
 </html>

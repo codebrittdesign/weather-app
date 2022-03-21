@@ -21,19 +21,19 @@ function weatherDisplay(response) {
   document.querySelector("#current-temp").innerHTML = Math.round(
     response.data.main.temp
   );
+
+  document.querySelector("#humidity").innerHTML = Math.round(
+    response.data.main.humidity
+  );
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
 }
-document.querySelector("#precip").innerHTML = Math.round(
-  response.data.main.precipitation
-);
-document.querySelector("#humidity").innerHTML = Math.round(
-  response.data.main.humidity
-);
-document.querySelector("#wind").innerHTML = Math.round(response.data.main.wind);
 
 function searchCity(city) {
   let apiKey = "b7b9844b6ed8730b16766136ce5ada57";
-  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiURL).then(displayWeatherDisplay);
+  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  axios.get(apiURL).then(weatherDisplay);
 }
 
 function handleSubmit(event) {
@@ -47,12 +47,13 @@ function changeCity(event) {
   let searchedCity = document.querySelector("input");
   let newCity = document.querySelector("h1");
   newCity.innerHTML = `${searchedCity.value}`;
+  searchCity(searchedCity.value);
 }
 
 function toCelsius(event) {
   event.preventDefault();
   let tempElement = document.querySelector(".current-temp");
-  tempElement.innerHTML = 23;
+  tempElement.innerHTML = 74;
 }
 
 function toFahrenheit(event) {
@@ -67,9 +68,3 @@ displayDate.innerHTML = now(currentTime);
 
 let submitCity = document.querySelector("#submit-city");
 submitCity.addEventListener("click", changeCity);
-
-let celsiusLink = document.querySelector("#celsius");
-celsiusLink.addEventListener("click", toCelsius);
-
-let fahrenheitLink = document.querySelector("#fahrenheit");
-fahrenheitLink.addEventListener("click", toFahrenheit);
